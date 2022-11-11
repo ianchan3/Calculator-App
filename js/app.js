@@ -21,6 +21,8 @@ function addToCurrentValue(i) {
       result.innerHTML += "/ ";
     } else if (keys[i].innerHTML === "x") {
       result.innerHTML += "*";   
+    } else if (keys[i].innerHTML === "()") {
+      bracket();   
     } else {
       result.innerHTML += keys[i].innerHTML;
     }
@@ -35,10 +37,23 @@ clear.addEventListener("click", () => {
   result.innerHTML = ""
 })
 
+
 function squareRoot() {
   return (result.innerHTML = Math.sqrt(result.innerHTML));
 }
 
 function squared() {
   return (result.innerHTML = Math.pow(result.innerHTML, 2));
+}
+
+
+let i = 0;
+function bracket() {
+  if (i == 0) {
+    result.innerHTML += "(";
+    i = 1;
+  } else {
+    result.innerHTML += ")";
+    i = 0;
+  }
 }
