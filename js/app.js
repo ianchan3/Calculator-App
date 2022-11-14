@@ -1,5 +1,5 @@
 const keys = document.getElementsByTagName("li");
-const result = document.querySelector("input");
+const result = document.querySelector("p");
 const clear = document.querySelector(".clear");
 
 
