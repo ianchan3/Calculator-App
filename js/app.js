@@ -1,5 +1,5 @@
 const keys = document.getElementsByTagName("li");
-const result = document.querySelector("p");
+const result = document.querySelector("input");
 const clear = document.querySelector(".clear");
 
 
@@ -10,24 +10,24 @@ for (let i = 0; i < keys.length; i++) {
     keys[i].addEventListener("click", squareRoot);
   } else if (keys[i].innerHTML === "n²") {
     keys[i].addEventListener("click", squared);
+  } else if (keys[i].innerHTML === "()") {
+    keys[i].addEventListener("click", bracket);
+  } else if (keys[i].innerHTML === "+/-") {
+    keys[i].addEventListener("click", inverse);
   } else {
-    keys[i].addEventListener("click", addToCurrentValue(i))
+    keys[i].addEventListener("click", () => {
+      if (keys[i].innerHTML === "÷") {
+        result.innerHTML += "/ ";
+      } else if (keys[i].innerHTML === "x") {
+        result.innerHTML += "*";   
+      } else {
+        result.innerHTML += keys[i].innerHTML;
+      }
+    })
   }
 }
 
-function addToCurrentValue(i) {
-  return () => {
-    if (keys[i].innerHTML === "÷") {
-      result.innerHTML += "/ ";
-    } else if (keys[i].innerHTML === "x") {
-      result.innerHTML += "*";   
-    } else if (keys[i].innerHTML === "()") {
-      bracket();   
-    } else {
-      result.innerHTML += keys[i].innerHTML;
-    }
-  }
-}
+
 
 function calculate() {
   return (result.innerHTML = eval(result.innerHTML));
@@ -57,3 +57,12 @@ function bracket() {
     i = 0;
   }
 }
+
+function inverse() {
+  if (result.innerHTML > 0) {
+    result.prepend("-");
+  } else if (result.innerHTML < 0) {
+     result.replace("-", "");
+  }
+}
+
