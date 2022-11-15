@@ -58,7 +58,12 @@ function bracket() {
 }
 
 function percentage() {
-  return (result.innerHTML / 100) * result.innerHTML;
+  let percentage = result.innerHTML.substr(0, 2);
+  let percentageInt = parseInt(percentage);
+  let value = result.innerHTML.substr(3);
+  let valueInt = parseInt(value);
+
+   return (result.innerHTML = (percentageInt / 100) * valueInt);
 }
 
 window.addEventListener("keydown", (e) => {
@@ -73,8 +78,9 @@ window.addEventListener("keydown", (e) => {
     e.key === '7' ||
     e.key === '8' ||
     e.key === '9' ||
-    e.key === '.' 
-  ){
+    e.key === '.' ||
+    e.key === '%' 
+  ) {
     clickButtonEl(e.key);
   } else if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "%") {
     clickOperation(e.key);
