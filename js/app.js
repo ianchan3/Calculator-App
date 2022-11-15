@@ -21,6 +21,8 @@ for (let i = 0; i < keys.length; i++) {
         result.innerHTML += "/ ";
       } else if (keys[i].innerHTML === "x") {
         result.innerHTML += "*";   
+      } else if (keys[i].innerHTML === "%") {
+        result.innerHTML += "%";   
       } else {
         result.innerHTML += keys[i].innerHTML;
       }
@@ -29,6 +31,13 @@ for (let i = 0; i < keys.length; i++) {
 }
 
 function calculate() {
+  let percentage = result.innerHTML.substr("0,2");
+  let percentageInt = parseInt(percentage)
+  let value = result.innerHTML.substr(3);
+  let valueInt = parseInt(value);
+  if (result.innerHTML.includes("%")) {
+    return (result.innerHTML = (percentageInt / 100) * valueInt);
+  }
   return (result.innerHTML = eval(result.innerHTML));
 }
 
