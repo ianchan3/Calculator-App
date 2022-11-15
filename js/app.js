@@ -1,4 +1,4 @@
-const keys = document.getElementsByTagName("li");
+const keys = document.querySelectorAll("li");
 const result = document.querySelector("p");
 const clear = document.querySelector(".clear");
 
@@ -12,8 +12,8 @@ for (let i = 0; i < keys.length; i++) {
     keys[i].addEventListener("click", squared);
   } else if (keys[i].innerHTML === "()") {
     keys[i].addEventListener("click", bracket);
-  } else if (keys[i].innerHTML === "+/-") {
-    keys[i].addEventListener("click", inverse);
+  } else if (keys[i].innerHTML === "%") {
+    keys[i].addEventListener("click", percentage);
   } else {
     keys[i].addEventListener("click", () => {
       if (keys[i].innerHTML === "÷") {
@@ -58,11 +58,58 @@ function bracket() {
   }
 }
 
-function inverse() {
-  if (result.innerHTML > 0) {
-    result.prepend("-");
-  } else if (result.innerHTML < 0) {
-     result.replace("-", "");
-  }
+function percentage() {
+  result.innerHTML = (parseFloat(result) / 100 ) * parseFloat(result);
 }
+
+
+
+window.addEventListener("keydown", (e) => {
+  if (
+    e.key === '0' ||
+    e.key === '1' ||
+    e.key === '2' ||
+    e.key === '3' ||
+    e.key === '4' ||
+    e.key === '5' ||
+    e.key === '6' ||
+    e.key === '7' ||
+    e.key === '8' ||
+    e.key === '9' ||
+    e.key === '.' 
+  ){
+    clickButtonEl(e.key);
+  } else if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "%") {
+    clickOperation(e.key);
+  } else if (e.key === "*") {
+    clickOperation("x");
+ 
+  } else if (e.key == "Enter" || e.key === "=") {
+    clickEqual();
+  }
+});
+
+function clickButtonEl(key){
+  keys.forEach((button) => {
+    if (button.innerText === key) {
+      button.click();
+    }
+  });
+}
+
+function clickOperation(key) {
+  keys.forEach((operation) => {
+    if (operation.innerText === key) {
+      operation.click();
+    }
+  });
+}
+
+function clickEqual() {
+    equal.click();
+  };
+
+
+
+
 
