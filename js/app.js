@@ -1,6 +1,7 @@
 const keys = document.querySelectorAll("li");
 const result = document.querySelector("p");
 const clear = document.querySelector(".clear");
+const equals = document.querySelector(".equals");
 
 
 for (let i = 0; i < keys.length; i++) {
@@ -26,8 +27,6 @@ for (let i = 0; i < keys.length; i++) {
     })
   }
 }
-
-
 
 function calculate() {
   return (result.innerHTML = eval(result.innerHTML));
@@ -59,10 +58,8 @@ function bracket() {
 }
 
 function percentage() {
-  result.innerHTML = (parseFloat(result) / 100 ) * parseFloat(result);
+  return (result.innerHTML / 100) * result.innerHTML;
 }
-
-
 
 window.addEventListener("keydown", (e) => {
   if (
@@ -106,7 +103,7 @@ function clickOperation(key) {
 }
 
 function clickEqual() {
-    equal.click();
+    equals.click();
   };
 
 

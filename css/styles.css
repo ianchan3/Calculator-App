@@ -71,17 +71,18 @@ section {
 
 .keys li {
   list-style: none;
-  width: 5.5rem;
+  width: 5rem;
   background-color: white;
-  margin: 1rem 0.5rem;
+  margin: 0.5rem 0.5rem;
   padding: 1rem;
   border: 4px solid black;
-  border-radius: 3px;
+  border-radius: 50px;
   color: green;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: bold;
+
 }
 
 .keys li:hover {
