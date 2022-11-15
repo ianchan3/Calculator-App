@@ -11,8 +11,10 @@ for (let i = 0; i < keys.length; i++) {
     keys[i].addEventListener("click", squareRoot);
   } else if (keys[i].innerHTML === "n²") {
     keys[i].addEventListener("click", squared);
-  } else if (keys[i].innerHTML === "()") {
+  } else if (keys[i].innerHTML === "( )") {
     keys[i].addEventListener("click", bracket);
+  } else if (keys[i].innerHTML === "π") {
+    keys[i].addEventListener("click", pi);
   } else {
     keys[i].addEventListener("click", () => {
       if (keys[i].innerHTML === "÷") {
@@ -43,6 +45,10 @@ function squared() {
   return (result.innerHTML = Math.pow(result.innerHTML, 2));
 }
 
+function pi() {
+  return (result.innerHTML = Math.PI * result.innerHTML);
+}
+
 
 let i = 0;
 function bracket() {
@@ -68,7 +74,11 @@ window.addEventListener("keydown", (e) => {
     e.key === '8' ||
     e.key === '9' ||
     e.key === '.' ||
-    e.key === '%' 
+    e.key === '%' ||
+    e.key === 'π' ||
+    e.key === '(' ||
+    e.key === ')' 
+    
   ) {
     clickButtonEl(e.key);
   } else if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "%") {
