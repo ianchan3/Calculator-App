@@ -11,31 +11,59 @@ section {
   align-items: center;
   background-color: lightblue;
   background: url("https://media.istockphoto.com/id/831597438/vector/money-pattern-with-many-dollar-currency-signs.jpg?s=612x612&w=0&k=20&c=nsPThiS6xBPsFypSW46G60qLdvdWnDnLq_nQD58hXvE=");
-
- 
 }
 
 .calculator {
   background-color: rgb(81, 194, 81);
   outline: 4px solid black;
   width: 28rem;
-  height: 33.5rem;
+  height: 38rem;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   border-radius: 70px;
   position: relative;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+.model {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 25px;
+  padding: 0.6rem 0.1rem;
+}
+
+.solar {
+  background-color: #26201D;
+  background: repeating-linear-gradient(
+    to left,
+    #111,
+    #111 2px,
+    #26201C 2px,
+    #26201C 35px
+  );
+
+  border-radius: 10px;
+  padding: 1rem 6rem;
+  margin: 0rem 1.65rem;
+  border: 3px solid black;
+}
 
 .result {
   color: black;
   background-color: white;
   font-size: 1.75rem;
   margin-top: 3px;
-  height: 3.8rem;
-  width: 73%;
+  height: 4rem;
+  width: 93%;
   border-radius: 3px;
-  margin-left: 9px;
+  margin-left: 10px;
   margin-bottom: 17px;
   border: 4px solid black;
   border-radius: 20px;
@@ -43,19 +71,9 @@ section {
   overflow: hidden;
 }
 
-.clear {
-  width: 5rem;
-  height: 4rem;
+#clear {
   background-color: red;
-  padding: 1rem;
-  position: absolute;
-  right: 1.9rem;
-  top: 1.6rem;
-  border: 4px solid black;
-  border-radius: 50px;
-  color: yellow;
-  text-align: center;
-  font-size: 1.6rem;
+  color: yellow
 }
 
 .clear:hover {

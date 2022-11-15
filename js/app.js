@@ -1,6 +1,6 @@
 const keys = document.querySelectorAll("li");
 const result = document.querySelector("p");
-const clear = document.querySelector(".clear");
+const clear = document.getElementById("clear");
 const equals = document.querySelector(".equals");
 
 
@@ -13,8 +13,6 @@ for (let i = 0; i < keys.length; i++) {
     keys[i].addEventListener("click", squared);
   } else if (keys[i].innerHTML === "()") {
     keys[i].addEventListener("click", bracket);
-  } else if (keys[i].innerHTML === "%") {
-    keys[i].addEventListener("click", percentage);
   } else {
     keys[i].addEventListener("click", () => {
       if (keys[i].innerHTML === "÷") {
@@ -55,15 +53,6 @@ function bracket() {
     result.innerHTML += ")";
     i = 0;
   }
-}
-
-function percentage() {
-  let percentage = result.innerHTML.substr(0, 2);
-  let percentageInt = parseInt(percentage);
-  let value = result.innerHTML.substr(3);
-  let valueInt = parseInt(value);
-
-   return (result.innerHTML = (percentageInt / 100) * valueInt);
 }
 
 window.addEventListener("keydown", (e) => {
