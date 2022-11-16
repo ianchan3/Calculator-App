@@ -93,28 +93,18 @@ window.addEventListener("keydown", (e) => {
     e.key === 'π' ||
     e.key === '(' ||
     e.key === ')' 
-    
   ) {
-    clickButtonEl(e.key);
+    result.innerHTML += e.key;
   } else if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "%") {
-    clickOperation(e.key);
+    result.innerHTML += e.key;
   } else if (e.key === "*") {
-    clickOperation("x");
+    result.innerHTML += e.key;
   } else if (e.key === "±") {
     clickOperation("+/-");
- 
   } else if (e.key == "Enter" || e.key === "=") {
-    clickEqual();
+    calculate();
   }
 });
-
-function clickButtonEl(key){
-  keys.forEach((button) => {
-    if (button.innerText === key) {
-      button.click();
-    }
-  });
-}
 
 function clickOperation(key) {
   keys.forEach((operation) => {
@@ -123,12 +113,3 @@ function clickOperation(key) {
     }
   });
 }
-
-function clickEqual() {
-    equals.click();
-  };
-
-
-
-
-
