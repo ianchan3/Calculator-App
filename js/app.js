@@ -2,7 +2,8 @@ const keys = document.querySelectorAll("li");
 const result = document.querySelector("p");
 const clear = document.getElementById("clear");
 const equals = document.querySelector(".equals");
-
+const numbers = document.querySelector(".number");
+const operators = document.querySelector(".operator");
 
 for (let i = 0; i < keys.length; i++) {
   if (keys[i].innerHTML === "=") {
@@ -22,12 +23,11 @@ for (let i = 0; i < keys.length; i++) {
       } else if (keys[i].innerHTML === "x") {
         result.innerHTML += "*";   
       } else if (keys[i].innerHTML === "%") {
-        result.innerHTML += "%";   
+        calculate()
+        result.innerHTML = (result.innerHTML /100);   
       } else if (keys[i].innerHTML === "+/-") {
-        if (!result.innerHTML.includes("-")) {
-          result.innerHTML = "-" + result.innerHTML;   
-        } else if (result.innerHTML.includes("-")) {
-          result.innerHTML = result.innerHTML.slice(1);
+        if (result.innerHTML.length >= 0) {
+          result.innerHTML += "-";   
         }
       } else {
         result.innerHTML += keys[i].innerHTML;
@@ -37,13 +37,6 @@ for (let i = 0; i < keys.length; i++) {
 }
 
 function calculate() {
-  let percentage = result.innerHTML.substr("0,2");
-  let percentageInt = parseInt(percentage)
-  let value = result.innerHTML.substr(3);
-  let valueInt = parseInt(value);
-  if (result.innerHTML.includes("%")) {
-    return (result.innerHTML = (percentageInt / 100) * valueInt);
-  }
   return (result.innerHTML = eval(result.innerHTML));
 }
 
@@ -53,14 +46,18 @@ clear.addEventListener("click", () => {
 
 
 function squareRoot() {
+  calculate();
   return (result.innerHTML = Math.sqrt(result.innerHTML));
 }
 
+
 function squared() {
+  calculate();
   return (result.innerHTML = Math.pow(result.innerHTML, 2));
 }
 
 function pi() {
+  calculate();
   return (result.innerHTML = Math.PI * result.innerHTML);
 }
 
