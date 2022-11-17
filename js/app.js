@@ -1,40 +1,37 @@
-const keys = document.querySelectorAll("li");
+// const keys = document.querySelectorAll("li");
 const result = document.querySelector("p");
 const clear = document.getElementById("clear");
 const equals = document.querySelector(".equals");
-const numbers = document.querySelector(".number");
-const operators = document.querySelector(".operator");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 
-for (let i = 0; i < keys.length; i++) {
-  if (keys[i].innerHTML === "=") {
-    keys[i].addEventListener("click", calculate);
-  } else if (keys[i].innerHTML === "√") {
-    keys[i].addEventListener("click", squareRoot);
-  } else if (keys[i].innerHTML === "n²") {
-    keys[i].addEventListener("click", squared);
-  } else if (keys[i].innerHTML === "( )") {
-    keys[i].addEventListener("click", bracket);
-  } else if (keys[i].innerHTML === "π") {
-    keys[i].addEventListener("click", pi);
-  } else {
-    keys[i].addEventListener("click", () => {
-      if (keys[i].innerHTML === "÷") {
-        result.innerHTML += "/ ";
-      } else if (keys[i].innerHTML === "x") {
-        result.innerHTML += "*";   
-      } else if (keys[i].innerHTML === "%") {
-        calculate()
-        result.innerHTML = (result.innerHTML /100);   
-      } else if (keys[i].innerHTML === "+/-") {
-        if (result.innerHTML.length >= 0) {
-          result.innerHTML += "-";   
-        }
-      } else {
-        result.innerHTML += keys[i].innerHTML;
-      }
-    })
-  }
-}
+numbers.forEach((number) => {
+  number.addEventListener("click", (e) => {
+    result.innerHTML += e.target.innerText;
+  });
+});
+
+operators.forEach((operator) => {
+  operator.addEventListener("click", (e) => {
+    if (!result) return; 
+    else if (e.target.innerHTML === "=") {
+      calculate();
+    } else if (e.target.innerHTML === "√") {
+      squareRoot();
+    } else if (e.target.innerHTML === "n²") {
+      squared();
+    } else if (e.target.innerHTML === "π") {
+      pi();
+    } else if (e.target.innerHTML === "%") {
+      percentage();
+    } else if (e.target.innerHTML === "+/-") {
+      plusMinus();
+    } else {
+      result.innerHTML += e.target.innerHTML;
+    };
+  });
+});
+
 
 function calculate() {
   return (result.innerHTML = eval(result.innerHTML));
@@ -50,10 +47,20 @@ function squareRoot() {
   return (result.innerHTML = Math.sqrt(result.innerHTML));
 }
 
+function percentage() {
+  calculate();
+  result.innerHTML = (result.innerHTML /100);   
+}
 
 function squared() {
   calculate();
   return (result.innerHTML = Math.pow(result.innerHTML, 2));
+}
+
+function plusMinus() {
+  if (result.innerHTML.length >= 0) {
+    result.innerHTML += "-";  
+  } 
 }
 
 function pi() {
