@@ -102,3 +102,7 @@ section {
   width: 180%;
   color: yellow;
 }
+
+#delete {
+  display: none;
+}

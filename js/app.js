@@ -1,5 +1,4 @@
 const result = document.querySelector("p");
-const clear = document.getElementById("clear");
 const equals = document.querySelector(".equals");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
@@ -23,21 +22,27 @@ operators.forEach((operator) => {
       pi();
     } else if (e.target.innerHTML === "%") {
       percentage();
+    } else if (e.target.innerHTML === "C") {
+      clearAll();
+    } else if (e.target.innerHTML === "delete") {
+      deleteOne();
     } else {
       result.innerHTML += e.target.innerHTML;
     };
   });
 });
 
-
 function calculate() {
-  return (result.innerHTML = eval(result.innerHTML));
+  try {
+    return (result.innerHTML = eval(result.innerHTML));
+  } catch (error) {
+    result.innerHTML = "NaN";
+  }
 }
 
-clear.addEventListener("click", () => {
-  result.innerHTML = ""
-})
-
+function clearAll() {
+  result.innerHTML = "";
+}
 
 function squareRoot() {
   calculate();
@@ -59,6 +64,11 @@ function pi() {
   return (result.innerHTML = Math.PI * result.innerHTML);
 }
 
+function deleteOne() {
+  const deleteResult = result.innerHTML.slice(0, result.innerHTML.length -1)
+  result.innerHTML = deleteResult;
+}
+
 let i = 0;
 function bracket() {
   if (i == 0) {
@@ -77,6 +87,10 @@ window.addEventListener("keydown", (e) => {
 
 if (e.key == "Enter") {
   calculate();
+} else if (e.keyCode === 8) {
+  deleteOne();
+} else if (e.key === "C" || e.key === "c") {
+  clearAll();
 } else if (matched) {
   result.innerHTML += e.key;
 }
