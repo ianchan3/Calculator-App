@@ -82,7 +82,7 @@ function bracket() {
 
 window.addEventListener("keydown", (e) => {
   const keyPressed = e.key;
-  const testRegex = /[0-9.%π()+-/*=]/g
+  const testRegex = /[0-9.%π()+-/*]/g
   const matched = keyPressed.match(testRegex);
 
 if (e.key == "Enter") {
