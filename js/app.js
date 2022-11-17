@@ -1,4 +1,3 @@
-// const keys = document.querySelectorAll("li");
 const result = document.querySelector("p");
 const clear = document.getElementById("clear");
 const equals = document.querySelector(".equals");
@@ -24,8 +23,6 @@ operators.forEach((operator) => {
       pi();
     } else if (e.target.innerHTML === "%") {
       percentage();
-    } else if (e.target.innerHTML === "+/-") {
-      plusMinus();
     } else {
       result.innerHTML += e.target.innerHTML;
     };
@@ -57,17 +54,10 @@ function squared() {
   return (result.innerHTML = Math.pow(result.innerHTML, 2));
 }
 
-function plusMinus() {
-  if (result.innerHTML.length >= 0) {
-    result.innerHTML += "-";  
-  } 
-}
-
 function pi() {
   calculate();
   return (result.innerHTML = Math.PI * result.innerHTML);
 }
-
 
 let i = 0;
 function bracket() {
@@ -81,39 +71,14 @@ function bracket() {
 }
 
 window.addEventListener("keydown", (e) => {
-  if (
-    e.key === '0' ||
-    e.key === '1' ||
-    e.key === '2' ||
-    e.key === '3' ||
-    e.key === '4' ||
-    e.key === '5' ||
-    e.key === '6' ||
-    e.key === '7' ||
-    e.key === '8' ||
-    e.key === '9' ||
-    e.key === '.' ||
-    e.key === '%' ||
-    e.key === 'π' ||
-    e.key === '(' ||
-    e.key === ')' 
-  ) {
-    result.innerHTML += e.key;
-  } else if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "%") {
-    result.innerHTML += e.key;
-  } else if (e.key === "*") {
-    result.innerHTML += e.key;
-  } else if (e.key === "±") {
-    clickOperation("+/-");
-  } else if (e.key == "Enter" || e.key === "=") {
-    calculate();
-  }
+  const keyPressed = e.key;
+  const testRegex = /[0-9.%π()+-/*=]/g
+  const matched = keyPressed.match(testRegex);
+
+if (e.key == "Enter") {
+  calculate();
+} else if (matched) {
+  result.innerHTML += e.key;
+}
 });
 
-function clickOperation(key) {
-  keys.forEach((operation) => {
-    if (operation.innerText === key) {
-      operation.click();
-    }
-  });
-}

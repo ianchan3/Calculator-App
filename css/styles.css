@@ -92,12 +92,13 @@ section {
 
 }
 
-.keys li:hover {
+.keys li:hover, .keys #equals:hover {
   background-color: yellow;
   color: green;
 }
 
-.keys .equals {
+.keys #equals {
   background-color: green;
+  width: 180%;
   color: yellow;
 }
