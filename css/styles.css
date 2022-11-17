@@ -89,7 +89,6 @@ section {
   cursor: pointer;
   transition: all 0.2s;
   font-weight: bold;
-
 }
 
 .keys li:hover, .keys #equals:hover {
