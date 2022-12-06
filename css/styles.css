@@ -75,7 +75,7 @@ section {
   font-size: 1.6rem;
 }
 
-.keys li {
+.keys button {
   list-style: none;
   width: 5rem;
   height: 4rem;
@@ -89,9 +89,10 @@ section {
   cursor: pointer;
   transition: all 0.2s;
   font-weight: bold;
+  font-size: 1.55rem;
 }
 
-.keys li:hover, .keys #equals:hover {
+.keys button:hover, .keys #equals:hover {
   background-color: yellow;
   color: green;
 }

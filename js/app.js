@@ -3,6 +3,7 @@ const equals = document.querySelector(".equals");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
+
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
     result.innerHTML += e.target.innerText;
@@ -34,7 +35,7 @@ operators.forEach((operator) => {
 
 function calculate() {
   try {
-    return (result.innerHTML = eval(result.innerHTML));
+    (result.innerHTML = eval(result.innerHTML));
   } catch (error) {
     result.innerHTML = "NaN";
   }
@@ -46,7 +47,7 @@ function clearAll() {
 
 function squareRoot() {
   calculate();
-  return (result.innerHTML = Math.sqrt(result.innerHTML));
+  result.innerHTML = Math.sqrt(result.innerHTML);
 }
 
 function percentage() {
@@ -56,28 +57,17 @@ function percentage() {
 
 function squared() {
   calculate();
-  return (result.innerHTML = Math.pow(result.innerHTML, 2));
+  result.innerHTML = Math.pow(result.innerHTML, 2);
 }
 
 function pi() {
   calculate();
-  return (result.innerHTML = Math.PI * result.innerHTML);
+  result.innerHTML = Math.PI * result.innerHTML;
 }
 
 function deleteOne() {
   const deleteResult = result.innerHTML.slice(0, result.innerHTML.length -1)
   result.innerHTML = deleteResult;
-}
-
-let i = 0;
-function bracket() {
-  if (i == 0) {
-    result.innerHTML += "(";
-    i = 1;
-  } else {
-    result.innerHTML += ")";
-    i = 0;
-  }
 }
 
 window.addEventListener("keydown", (e) => {
