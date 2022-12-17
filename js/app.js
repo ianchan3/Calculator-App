@@ -61,8 +61,12 @@ function squared() {
 }
 
 function pi() {
-  calculate();
-  result.innerHTML = Math.PI * result.innerHTML;
+  if (result.innerHTML.length > 0) {
+    calculate();
+    result.innerHTML = Math.PI * result.innerHTML;
+  } else {
+    result.innerHTML = 3.14;
+  }
 }
 
 function deleteOne() {
