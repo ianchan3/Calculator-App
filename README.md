@@ -8,7 +8,7 @@ My calculator app is a handy tool that allows users to perform a variety of math
 <img src = https://i.imgur.com/JOtRjX0.jpg>
 
 ## :computer: Technologies Used
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,netlify,github,vscode)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,netlify,github,vscode,markdown)](https://skillicons.dev)
 
 ## :link: Links
 
