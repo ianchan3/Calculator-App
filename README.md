@@ -12,4 +12,4 @@ My calculator app is a handy tool that allows users to perform a variety of math
 
 ## :link: Links
 
-https://ianchancalculatorapp.netlify.app/
+- https://ianchancalculatorapp.netlify.app
